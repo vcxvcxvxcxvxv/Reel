@@ -1,103 +1,71 @@
+as you can see the spacing for my github page is so weird can you fix it here is the readme code:
+
 <div align="center">
-
 <img src="docs/icon.png" width="132" alt="Reel icon">
-
 # <samp>R E E L</samp>
-
 <samp>YOUR WALLPAPERS. IN MOTION.</samp>
-
 <br>
-
 <img src="https://img.shields.io/badge/macOS-0b1220?style=flat&labelColor=111827" alt="macOS">
 <img src="https://img.shields.io/badge/Apple%20Silicon-0b1220?style=flat&labelColor=111827" alt="Apple Silicon">
 <img src="https://img.shields.io/badge/Private-0b1220?style=flat&labelColor=111827" alt="Private">
-
 </div>
-
 <br><br>
-
 <p align="center">
   <img src="docs/hero.png" alt="Reel — your wallpapers in motion" width="100%">
 </p>
-
 <br>
-
 <table>
 <tr>
-<td width="25%" valign="top" align="left">
+<td width="25%" valign="top">
 ### <samp>⚡ BLAZING FAST</samp>
-<br>
-<samp>Fluid, seamless<br>navigation with<br>zero lag.</samp>
+<samp>Fluid, seamless navigation<br>
+with zero lag.</samp>
 </td>
-<td width="25%" valign="top" align="left">
+<td width="25%" valign="top">
 ### <samp>▧ BEAUTIFUL UI</samp>
-<br>
-<samp>Clean, minimal and<br>built for macOS.</samp>
+<samp>Clean, minimal and<br>
+built for macOS.</samp>
 </td>
-<td width="25%" valign="top" align="left">
+<td width="25%" valign="top">
 ### <samp>⚙ SMART &amp; EFFICIENT</samp>
-<br>
-<samp>Optimised for<br>performance and<br>low memory usage.</samp>
+<samp>Optimised for performance<br>
+and low memory usage.</samp>
 </td>
-<td width="25%" valign="top" align="left">
+<td width="25%" valign="top">
 ### <samp>▣ YOUR WAY</samp>
-<br>
-<samp>Show file names,<br>numbers or hide<br>them completely.</samp>
+<samp>Show file names, numbers<br>
+or hide them completely.</samp>
 </td>
 </tr>
 </table>
-
+<br><br>
 <table>
 <tr>
 <td width="48%" valign="top">
-
 ## <samp>KEY FEATURES</samp>
-
 <samp>→ Ultra-smooth navigation — trackpad, mouse and arrow keys</samp>
-
 <samp>→ Stunning 3D carousel interface</samp>
-
 <samp>→ File names, numbered labels or no labels</samp>
-
 <samp>→ Optimised for Apple Silicon (M1 / M2 / M3 / M4 / M5)</samp>
-
 <samp>→ Bounded thumbnail cache for predictable memory use</samp>
-
 <samp>→ No background polling while the picker is closed</samp>
-
 <samp>→ Fast, lightweight and designed for macOS</samp>
-
 </td>
 <td width="52%" valign="top">
-
 <img src="docs/detail.svg" alt="Reel carousel detail" width="100%">
-
 </td>
 </tr>
 </table>
-
 ## <samp>ABOUT</samp>
-
 <samp>Reel is built to make wallpaper browsing feel immediate: swipe, scroll or press an arrow key and the carousel stays fluid while background work stays low.</samp>
-
 ### <samp>PERFORMANCE</samp>
-
 <samp>Continuous input is handled frame-by-frame. Thumbnail work is bounded and cancellable, and late decode results are ignored after the picker closes.</samp>
-
 ### <samp>LABELS</samp>
-
 <samp>Labels are display-only. They never rename the actual files in Finder.</samp>
-
 <samp>01 / 02 / 03... &nbsp;&nbsp;•&nbsp;&nbsp; Original filename &nbsp;&nbsp;•&nbsp;&nbsp; Hidden</samp>
-
 ### <samp>REQUIREMENTS</samp>
-
 <samp>macOS 14+ &nbsp;&nbsp;•&nbsp;&nbsp; Apple Silicon &nbsp;&nbsp;•&nbsp;&nbsp; Reel 1.1.1</samp>
-
 ### <samp>DOWNLOAD</samp>
-
 <samp>The Apple-silicon DMG is distributed from Releases.</samp>
-
 <hr>
-
 <p align="center"><samp>REEL // YOUR WALLPAPERS. IN MOTION.</samp></p>
