@@ -1,57 +1,67 @@
+<div align="center">
+
 <table>
 <tr>
 <td width="150" valign="middle">
 <img src="docs/icon.png" width="128" alt="Reel icon">
 </td>
-<td valign="middle">
+<td align="left" valign="middle">
 
-# Reel
+# <samp>Reel</samp>
 
-The fastest, smoothest and most beautiful way to<br>
-browse and set your wallpapers on macOS.
+<samp>The fastest, smoothest and most beautiful way to<br>
+browse and set your wallpapers on macOS.</samp>
 
-<img src="https://img.shields.io/badge/macOS-111827?style=flat&labelColor=374151" height="26" alt="macOS">
-<img src="https://img.shields.io/badge/Apple%20Silicon-111827?style=flat&labelColor=374151" height="26" alt="Apple Silicon">
-<img src="https://img.shields.io/badge/Private-111827?style=flat&labelColor=374151" height="26" alt="Private">
+<img src="https://img.shields.io/badge/macOS-0b1220?style=flat&labelColor=111827" alt="macOS">
+<img src="https://img.shields.io/badge/Apple%20Silicon-0b1220?style=flat&labelColor=111827" alt="Apple Silicon">
+<img src="https://img.shields.io/badge/Private-0b1220?style=flat&labelColor=111827" alt="Private">
 
 </td>
 </tr>
 </table>
 
+</div>
+
 <br>
 
 <p align="center">
-  <img src="docs/hero.jpg" alt="Reel — your wallpapers in motion" width="100%">
+  <img src="docs/hero.webp" alt="Reel — your wallpapers in motion" width="100%">
 </p>
+
+<br>
 
 <table>
 <tr>
 <td width="25%" valign="top">
 
-### ⚡ Blazing Fast
+### <samp>⚡ BLAZING FAST</samp>
 
-Fluid, seamless navigation with zero lag.
-
-</td>
-<td width="25%" valign="top">
-
-### ▧ Beautiful UI
-
-Clean, minimal and built for macOS.
+<samp>Fluid, seamless navigation<br>
+with zero lag.</samp>
 
 </td>
 <td width="25%" valign="top">
 
-### ⚙ Smart & Efficient
+### <samp>▧ BEAUTIFUL UI</samp>
 
-Optimised for performance and low memory usage.
+<samp>Clean, minimal and<br>
+built for macOS.</samp>
 
 </td>
 <td width="25%" valign="top">
 
-### ▣ Your Way
+### <samp>⚙ SMART &amp; EFFICIENT</samp>
 
-Show file names, numbers or hide them completely.
+<samp>Optimised for performance<br>
+and low memory usage.</samp>
+
+</td>
+<td width="25%" valign="top">
+
+### <samp>▣ YOUR WAY</samp>
+
+<samp>Show file names, numbers<br>
+or hide them completely.</samp>
 
 </td>
 </tr>
@@ -63,15 +73,33 @@ Show file names, numbers or hide them completely.
 <tr>
 <td width="48%" valign="top">
 
-## Key Features
+## <samp>KEY FEATURES</samp>
 
-- Ultra-smooth navigation (trackpad, mouse, arrow keys)
-- Stunning 3D carousel interface
-- Choose between file names, numbered labels or no labels
-- Optimised for Apple Silicon
-- Low memory usage with a bounded decoded-image cache
-- No background polling while the picker is closed
-- Fast, lightweight and designed for macOS
+<samp>→ Ultra-smooth navigation — trackpad, mouse and arrow keys</samp>
+
+<br><br>
+
+<samp>→ Stunning 3D carousel interface</samp>
+
+<br><br>
+
+<samp>→ File names, numbered labels or no labels</samp>
+
+<br><br>
+
+<samp>→ Optimised for Apple Silicon (M1 / M2 / M3 / M4)</samp>
+
+<br><br>
+
+<samp>→ Bounded thumbnail cache for predictable memory use</samp>
+
+<br><br>
+
+<samp>→ No background polling while the picker is closed</samp>
+
+<br><br>
+
+<samp>→ Fast, lightweight and designed for macOS</samp>
 
 </td>
 <td width="52%" valign="top">
@@ -84,42 +112,38 @@ Show file names, numbers or hide them completely.
 
 <br>
 
-## About
+## <samp>ABOUT</samp>
 
-Reel is built to make wallpaper browsing feel immediate: swipe, scroll or press an arrow key and the carousel stays fluid while the app keeps its background workload low.
+<samp>Reel is built to make wallpaper browsing feel immediate: swipe, scroll or press an arrow key and the carousel stays fluid while background work stays low.</samp>
 
-### Performance
+<br><br>
 
-The picker is designed around:
-- Continuous, low-latency navigation
-- Bounded thumbnail memory
-- On-demand image work
-- Cancellation of unnecessary thumbnail work
-- Late decode results invalidated when the picker closes
-- Sleeping animation when the picker is settled
-- Memory cleanup when the picker closes
+### <samp>PERFORMANCE</samp>
 
-### Labels
+<samp>Continuous input is handled frame-by-frame. Thumbnail work is bounded and cancellable, and late decode results are ignored after the picker closes.</samp>
 
-Labels are display-only and never rename the actual files in Finder.
+<br><br>
 
-Choose:
-- `01`, `02`, `03`...
-- Original source filename
-- Hidden
+### <samp>LABELS</samp>
 
-### Requirements
+<samp>Labels are display-only. They never rename the actual files in Finder.</samp>
 
-- macOS 14+
-- Apple Silicon
-- Release: **v1.1.1**
+<br>
 
-### Download
+<samp>01 / 02 / 03... &nbsp;&nbsp;•&nbsp;&nbsp; Original filename &nbsp;&nbsp;•&nbsp;&nbsp; Hidden</samp>
 
-The Apple-silicon DMG is distributed from the **Releases** section of this repository.
+<br><br>
 
----
+### <samp>REQUIREMENTS</samp>
 
-<p align="center">
-  <sub>Reel — your wallpapers. in motion.</sub>
-</p>
+<samp>macOS 14+ &nbsp;&nbsp;•&nbsp;&nbsp; Apple Silicon &nbsp;&nbsp;•&nbsp;&nbsp; Reel 1.1.1</samp>
+
+<br><br>
+
+### <samp>DOWNLOAD</samp>
+
+<samp>The Apple-silicon DMG is distributed from Releases.</samp>
+
+<hr>
+
+<p align="center"><samp>REEL // YOUR WALLPAPERS. IN MOTION.</samp></p>
