@@ -1,7 +1,7 @@
 <table>
 <tr>
 <td width="150" valign="middle">
-<img src="docs/icon.svg" width="128" alt="Reel icon">
+<img src="docs/icon.png" width="128" alt="Reel icon">
 </td>
 <td valign="middle">
 
@@ -21,7 +21,7 @@ browse and set your wallpapers on macOS.
 <br>
 
 <p align="center">
-  <img src="docs/preview.svg" alt="Reel — your wallpapers in motion" width="100%">
+  <img src="docs/hero.jpg" alt="Reel — your wallpapers in motion" width="100%">
 </p>
 
 <table>
@@ -76,7 +76,7 @@ Show file names, numbers or hide them completely.
 </td>
 <td width="52%" valign="top">
 
-<img src="docs/detail.svg" alt="Reel carousel detail" width="100%">
+<img src="docs/second.jpg" alt="Reel carousel detail" width="100%">
 
 </td>
 </tr>
