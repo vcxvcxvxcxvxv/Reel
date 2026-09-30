@@ -1,60 +1,124 @@
+<table>
+<tr>
+<td width="150" valign="middle">
+<img src="docs/icon.svg" width="128" alt="Reel icon">
+</td>
+<td valign="middle">
+
 # Reel
 
+The fastest, smoothest and most beautiful way to<br>
+browse and set your wallpapers on macOS.
+
+<img src="https://img.shields.io/badge/macOS-111827?style=flat&labelColor=374151" height="26" alt="macOS">
+<img src="https://img.shields.io/badge/Apple%20Silicon-111827?style=flat&labelColor=374151" height="26" alt="Apple Silicon">
+<img src="https://img.shields.io/badge/Private-111827?style=flat&labelColor=374151" height="26" alt="Private">
+
+</td>
+</tr>
+</table>
+
+<br>
+
 <p align="center">
-  <img src="docs/icon.svg" width="128" alt="Reel app icon">
+  <img src="docs/preview.svg" alt="Reel — your wallpapers in motion" width="100%">
 </p>
 
-<h1 align="center">Reel</h1>
+<table>
+<tr>
+<td width="25%" valign="top">
+
+### ⚡ Blazing Fast
+
+Fluid, seamless navigation with zero lag.
+
+</td>
+<td width="25%" valign="top">
+
+### ▧ Beautiful UI
+
+Clean, minimal and built for macOS.
+
+</td>
+<td width="25%" valign="top">
+
+### ⚙ Smart & Efficient
+
+Optimised for performance and low memory usage.
+
+</td>
+<td width="25%" valign="top">
+
+### ▣ Your Way
+
+Show file names, numbers or hide them completely.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<td width="48%" valign="top">
+
+## Key Features
+
+- Ultra-smooth navigation (trackpad, mouse, arrow keys)
+- Stunning 3D carousel interface
+- Choose between file names, numbered labels or no labels
+- Optimised for Apple Silicon (M1/M2/M3/M4)
+- Low memory usage (capped thumbnail cache)
+- No background battery drain
+- Fast, lightweight and designed for macOS
+
+</td>
+<td width="52%" valign="top">
+
+<img src="docs/detail.svg" alt="Reel carousel detail" width="100%">
+
+</td>
+</tr>
+</table>
+
+<br>
+
+## About
+
+Reel is built to make wallpaper browsing feel immediate: swipe, scroll or press an arrow key and the carousel stays fluid while the app keeps its background workload low.
+
+### Performance
+
+The picker is designed around:
+- Continuous, low-latency navigation
+- Bounded thumbnail memory
+- On-demand image work
+- Cancellation of unnecessary thumbnail work
+- Sleeping animation when the picker is settled
+- Memory cleanup when the picker closes
+
+### Labels
+
+Labels are display-only and never rename the actual files in Finder.
+
+Choose:
+- `01`, `02`, `03`...
+- Original source filename
+- Hidden
+
+### Requirements
+
+- macOS 14+
+- Apple Silicon
+- Release: **v1.1.0**
+
+### Download
+
+The Apple-silicon DMG is distributed from the **Releases** section of this repository.
+
+---
 
 <p align="center">
-  A fast, fluid macOS wallpaper picker built around a cinematic carousel.
+  <sub>Reel — your wallpapers. in motion.</sub>
 </p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/macOS-14%2B-111111?style=flat-square">
-  <img src="https://img.shields.io/badge/Apple%20Silicon-arm64-111111?style=flat-square">
-  <img src="https://img.shields.io/badge/Swift-5-111111?style=flat-square">
-  <img src="https://img.shields.io/badge/release-v1.1.0-111111?style=flat-square">
-</p>
-
-## What is Reel?
-
-Reel is a lightweight menu-bar utility for browsing and applying wallpapers with a responsive, cinematic carousel. It is designed to feel immediate during trackpad swipes and repeated arrow-key navigation while staying quiet when the picker is closed.
-
-## Highlights
-
-- Fluid trackpad momentum and continuous keyboard navigation
-- Display-link animation that sleeps when the picker is settled
-- Bounded thumbnail cache with on-demand decoding
-- Immediate thumbnail-work cancellation and memory purge when the picker closes
-- Apple-silicon arm64 release target
-- Display-only labels: `01`, source filename, or hidden
-- Low background workload when idle
-
-## Preview
-
-![Reel preview](docs/preview.svg)
-
-The preview above is a visual product mockup representing the interface direction; it is not a captured runtime screenshot.
-
-## Install
-
-The intended distribution is an Apple-silicon DMG from the project's GitHub Releases page.
-
-## Build locally
-
-On an Apple-silicon Mac with Xcode Command Line Tools installed, use the packaged release project and run its build script with the DMG option.
-
-## Release
-
-Current project version: **1.1.0**
-
-Release notes and the Apple-silicon DMG pipeline are maintained with the project release package.
-
-## Project status
-
-This repository is currently being used as the private project home for Reel. The full release source package is maintained alongside the project build artifacts.
-
-## License
-
-Private project.
