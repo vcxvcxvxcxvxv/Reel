@@ -1,0 +1,255 @@
+name: Release Reel
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore the complete source snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          trap 'rm -rf "$tmp"' EXIT
+
+          # The original complete Reel source snapshot was split into three text
+          # blobs in earlier repository history. Restore it before building so
+          # the release workflow still has a reproducible source tree.
+          git show df57b44fe525571a65584e15269b681a296c72f5:dist/source.part.01.b64 > "$tmp/part01"
+          git show 4d57b32fdcb52d0784513fe4b8f21277b3bbbef6:dist/source.part.02.b64 > "$tmp/part02"
+          git show a68b36c7e3944bd97ba9e5ffd29831e15e66624d:dist/source.part.03.b64 > "$tmp/part03"
+          cat "$tmp"/part0* | base64 -D > "$tmp/source.zip"
+
+          mkdir "$tmp/unpacked"
+          unzip -q "$tmp/source.zip" -d "$tmp/unpacked"
+          package="$(find "$tmp/unpacked" -name Package.swift -print -quit)"
+          test -n "$package"
+          srcroot="$(dirname "$package")"
+          rsync -a "$srcroot/" ./
+          chmod +x build.sh
+
+      - name: Apply 1.1.1 fixes to the restored source
+        shell: bash
+        run: |
+          set -euo pipefail
+          swift <<'SWIFT'
+          import Foundation
+
+          func patch(_ path: String, _ old: String, _ new: String) throws {
+              let url = URL(fileURLWithPath: path)
+              var text = try String(contentsOf: url, encoding: .utf8)
+              if text.contains(new) {
+                  print("already patched: \(path)")
+                  return
+              }
+              guard text.contains(old) else {
+                  throw NSError(domain: "ReelPatch", code: 1,
+                                userInfo: [NSLocalizedDescriptionKey: "Expected block not found in \(path)"])
+              }
+              text = text.replacingOccurrences(of: old, with: new)
+              try text.write(to: url, atomically: true, encoding: .utf8)
+              print("patched: \(path)")
+          }
+
+          try patch(
+              "Sources/Reel/CarouselView.swift",
+              "private let keyboardHoldDelay: CFTimeInterval = 0.050",
+              "private let keyboardHoldDelay: CFTimeInterval = 0.180"
+          )
+
+          try patch(
+              "Sources/Reel/CarouselView.swift",
+              """
+              /// Arrow key released after a glide: coast on to the next tile in that direction.
+              private func endHold() {
+                  holdDirection = 0
+                  guard holding else { return }
+                  holding = false
+                  snappy = true
+                  let projected = offset + velocity * 0.12
+                  let i = clampIndex(Int((projected / metrics.step).rounded()))
+                  selected = i
+                  target = CGFloat(i) * metrics.step
+                  wake()
+              }
+              """,
+              """
+              /// A short key press is exactly one wallpaper. A genuine hold settles to the wallpaper
+              /// currently under the centre instead of projecting extra distance on release.
+              private func endHold() {
+                  holdDirection = 0
+                  let wasHolding = holding
+                  holding = false
+                  guard wasHolding else { return }
+                  snappy = true
+                  velocity = 0
+                  let i = nearestIndex(offset)
+                  selected = i
+                  target = CGFloat(i) * metrics.step
+                  wake()
+              }
+              """
+          )
+
+          try patch(
+              "Sources/Reel/CarouselView.swift",
+              """
+              /// Small folders get decoded up-front so no tile ever shows up blank mid-scroll.
+              private func preload() {
+                  guard items.count <= 40 else { return }
+                  for item in items where library.cachedThumbnail(item, spec: spec) == nil {
+                      library.requestThumbnail(item, spec: spec) { _ in }
+                  }
+              }
+              """,
+              """
+              /// Preload only the neighbourhood around the starting wallpaper. The visible strip and
+              /// directional prefetcher cover the rest on demand, so opening a large folder never kicks
+              /// off a burst of decodes for wallpapers the user may never visit.
+              private func preload() {
+                  guard !items.isEmpty else { return }
+                  let radius = ProcessInfo.processInfo.isLowPowerModeEnabled ? 2 : 5
+                  let lo = max(0, selected - radius)
+                  let hi = min(items.count - 1, selected + radius)
+                  guard lo <= hi else { return }
+                  for i in lo...hi where library.cachedThumbnail(items[i], spec: spec) == nil {
+                      library.requestThumbnail(items[i], spec: spec) { _ in }
+                  }
+              }
+              """
+          )
+
+          try patch(
+              "Sources/Reel/Transition.swift",
+              "TransitionController.setWallpaper(url, on: NSScreen.screens)",
+              "TransitionController.setWallpaper(url, on: screens)"
+          )
+
+          try patch(
+              "Sources/Reel/Transition.swift",
+              "self.reveal(image: image, url: url, origin: origin, screens: NSScreen.screens, style: style,",
+              "self.reveal(image: image, url: url, origin: origin, screens: screens, style: style,"
+          )
+
+          try patch(
+              "Sources/Reel/WallpaperLibrary.swift",
+              """
+              private let foreground = OperationQueue()
+              private let background = OperationQueue()
+              private var waiting: [String: [(Thumb?) -> Void]] = [:]   // main thread only
+              """,
+              """
+              private let foreground = OperationQueue()
+              private let background = OperationQueue()
+              private var waiting: [String: [(Thumb?) -> Void]] = [:]   // main thread only
+              // Invalidates callbacks from decode work that was already running when the picker closed.
+              private var thumbnailGeneration = 0
+              """
+          )
+
+          try patch(
+              "Sources/Reel/WallpaperLibrary.swift",
+              """
+              waiting[key] = [completion]
+              let dir = cacheDir
+              foreground.addOperation { [weak self] in
+              """,
+              """
+              waiting[key] = [completion]
+              let dir = cacheDir
+              let generation = thumbnailGeneration
+              foreground.addOperation { [weak self] in
+              """
+          )
+
+          try patch(
+              "Sources/Reel/WallpaperLibrary.swift",
+              """
+              DispatchQueue.main.async {
+                  guard let self else { return }
+                  if let thumb { self.memory.setObject(thumb, forKey: key as NSString, cost: thumb.cost) }
+                  let callbacks = self.waiting.removeValue(forKey: key) ?? []
+                  callbacks.forEach { $0(thumb) }
+              }
+              """,
+              """
+              DispatchQueue.main.async {
+                  guard let self, self.thumbnailGeneration == generation else { return }
+                  if let thumb { self.memory.setObject(thumb, forKey: key as NSString, cost: thumb.cost) }
+                  let callbacks = self.waiting.removeValue(forKey: key) ?? []
+                  callbacks.forEach { $0(thumb) }
+              }
+              """
+          )
+
+          try patch(
+              "Sources/Reel/WallpaperLibrary.swift",
+              """
+              func cancelPendingThumbnailWork() {
+                  foreground.cancelAllOperations()
+                  // Do not retain the dictionary's closure buffers after the picker closes.
+                  waiting.removeAll(keepingCapacity: false)
+              }
+
+              func clearCache() {
+                  foreground.cancelAllOperations()
+              """,
+              """
+              func cancelPendingThumbnailWork() {
+                  thumbnailGeneration &+= 1
+                  foreground.cancelAllOperations()
+                  // Do not retain the dictionary's closure buffers after the picker closes.
+                  waiting.removeAll(keepingCapacity: false)
+              }
+
+              func clearCache() {
+                  thumbnailGeneration &+= 1
+                  foreground.cancelAllOperations()
+              """
+          )
+          SWIFT
+
+      - name: Verify source syntax
+        run: swiftc -parse Sources/Reel/*.swift
+
+      - name: Verify Apple silicon runner
+        run: |
+          test "$(uname -m)" = "arm64"
+          swift --version
+
+      - name: Build arm64 DMG
+        run: |
+          export REEL_VERSION="${GITHUB_REF_NAME#v}"
+          if [[ "$REEL_VERSION" == "$GITHUB_REF_NAME" ]]; then REEL_VERSION="1.1.1"; fi
+          ./build.sh --dmg
+
+      - name: Verify Mach-O architecture
+        run: |
+          file build/Reel.app/Contents/MacOS/Reel
+          file build/Reel.app/Contents/MacOS/Reel | grep -q 'arm64'
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Reel-${{ github.ref_name }}-arm64
+          path: build/Reel.dmg
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: build/Reel.dmg
