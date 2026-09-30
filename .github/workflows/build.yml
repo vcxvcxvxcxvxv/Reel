@@ -31,22 +31,21 @@ jobs:
           git show df57b44fe525571a65584e15269b681a296c72f5:dist/source.part.01.b64 > "$tmp/part01"
           git show 4d57b32fdcb52d0784513fe4b8f21277b3bbbef6:dist/source.part.02.b64 > "$tmp/part02"
           git show a68b36c7e3944bd97ba9e5ffd29831e15e66624d:dist/source.part.03.b64 > "$tmp/part03"
-          # Each historical .b64 file is base64 for one binary chunk of the same
-          # compressed source archive. Decode each chunk independently, then join
-          # the decoded bytes; the chunks are not independently decompressible.
+          # The three files are consecutive pieces of one base64-encoded gzip
+          # stream. Rejoin the text first, restore the missing base64 padding,
+          # then decode the complete compressed stream.
           python3 - "$tmp" <<'PY'
           import base64, pathlib, sys
           root = pathlib.Path(sys.argv[1])
-          with (root / "source.zip").open("wb") as out:
-              for name in ("part01", "part02", "part03"):
-                  raw = (root / name).read_bytes()
-                  raw += b"=" * ((4 - len(raw) % 4) % 4)
-                  out.write(base64.b64decode(raw, validate=False))
+          raw = b"".join((root / name).read_bytes() for name in ("part01", "part02", "part03"))
+          raw = b"".join(raw.split())
+          raw += b"=" * ((4 - len(raw) % 4) % 4)
+          (root / "source.gz").write_bytes(base64.b64decode(raw, validate=False))
           PY
 
           # The reconstructed byte stream is gzip-compressed; decompress it to
           # recover the actual ZIP source archive.
-          gzip -dc "$tmp/source.zip" > "$tmp/source-unpacked.zip"
+          gzip -dc "$tmp/source.gz" > "$tmp/source-unpacked.zip"
 
           mkdir "$tmp/unpacked"
           unzip -q "$tmp/source-unpacked.zip" -d "$tmp/unpacked"
