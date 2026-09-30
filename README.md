@@ -1,7 +1,7 @@
 # Reel
 
 <p align="center">
-  <img src="Resources/AppIcon.png" width="128" alt="Reel app icon">
+  <img src="docs/icon.svg" width="128" alt="Reel app icon">
 </p>
 
 <h1 align="center">Reel</h1>
@@ -19,45 +19,41 @@
 
 ## What is Reel?
 
-Reel is a lightweight menu-bar utility for browsing and applying wallpapers with a smooth, responsive carousel. It is designed to feel immediate during trackpad swipes and repeated arrow-key navigation while staying quiet when the picker is closed.
+Reel is a lightweight menu-bar utility for browsing and applying wallpapers with a responsive, cinematic carousel. It is designed to feel immediate during trackpad swipes and repeated arrow-key navigation while staying quiet when the picker is closed.
 
-### Highlights
+## Highlights
 
 - Fluid trackpad momentum and continuous keyboard navigation
 - Display-link animation that sleeps when the picker is settled
 - Bounded thumbnail cache with on-demand decoding
 - Immediate thumbnail-work cancellation and memory purge when the picker closes
-- Apple-silicon arm64 release builds
+- Apple-silicon arm64 release target
 - Display-only labels: `01`, source filename, or hidden
-- macOS-friendly low-background-work design
+- Low background workload when idle
 
-## UI preview
+## Preview
 
-This repository includes a visual design preview in [docs/preview.svg](docs/preview.svg). It is a design preview rather than a captured runtime screenshot.
+![Reel preview](docs/preview.svg)
+
+The preview above is a visual product mockup representing the interface direction; it is not a captured runtime screenshot.
 
 ## Install
 
-Download the latest **Reel.dmg** from **Releases**, open it, and drag **Reel.app** into **Applications**.
-
-The release build targets Apple-silicon Macs (arm64).
+The intended distribution is an Apple-silicon DMG from the project's GitHub Releases page.
 
 ## Build locally
 
-On an Apple-silicon Mac with Xcode Command Line Tools installed:
+On an Apple-silicon Mac with Xcode Command Line Tools installed, use the packaged release project and run its build script with the DMG option.
 
-```sh
-./build.sh --dmg
-```
+## Release
 
-The prepared release is **v1.1.0**.
+Current project version: **1.1.0**
 
-## Source
+Release notes and the Apple-silicon DMG pipeline are maintained with the project release package.
 
-The complete release source is provided as [Reel-1.1.0-source.tar.gz](Reel-1.1.0-source.tar.gz). The app icon is kept separately in `Resources/AppIcon.png` so the build can reproduce the branded app bundle.
+## Project status
 
-## Release automation
-
-GitHub Actions contains the arm64 macOS build pipeline. Versioned tags use the form `vMAJOR.MINOR.PATCH`.
+This repository is currently being used as the private project home for Reel. The full release source package is maintained alongside the project build artifacts.
 
 ## License
 
