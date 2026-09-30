@@ -50,7 +50,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/detail.svg" alt="Reel carousel detail" width="88%">
+  <img src="docs/detail.png" alt="Reel carousel detail" width="88%">
 </p>
 
 <hr>
