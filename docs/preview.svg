@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0b0d"/><stop offset="1" stop-color="#17171b"/></linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27313f"/><stop offset="1" stop-color="#111821"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-opacity=".55"/></filter>
+</defs>
+<rect width="1200" height="620" rx="34" fill="url(#bg)"/>
+<text x="72" y="82" fill="#fff" font-family="SF Pro Display, -apple-system, sans-serif" font-size="44" font-weight="700">Reel</text>
+<text x="72" y="120" fill="#8f939c" font-family="SF Pro Display, -apple-system, sans-serif" font-size="18">Fluid wallpaper browsing for macOS</text>
+<g filter="url(#shadow)">
+  <rect x="90" y="170" width="210" height="300" rx="24" fill="url(#card)" stroke="#39414d"/>
+  <rect x="315" y="140" width="250" height="360" rx="28" fill="#1b2531" stroke="#68798d"/>
+  <rect x="580" y="110" width="300" height="420" rx="30" fill="#202b39" stroke="#9fb3ca"/>
+  <rect x="895" y="145" width="235" height="350" rx="26" fill="#1a222c" stroke="#596778"/>
+</g>
+<g opacity=".95">
+  <path d="M90 390l64-70 48 52 38-36 60 54v80H90z" fill="#44576d"/>
+  <path d="M315 420l78-100 54 62 52-72 66 90v100H315z" fill="#526a84"/>
+  <path d="M580 420l92-130 62 80 70-112 76 140v122H580z" fill="#6884a1"/>
+  <path d="M895 395l56-66 55 54 37-34 86 78v68H895z" fill="#495d73"/>
+</g>
+<circle cx="730" cy="570" r="7" fill="#fff"/>
+<circle cx="758" cy="570" r="5" fill="#5d6672"/>
+<circle cx="779" cy="570" r="5" fill="#5d6672"/>
+<text x="930" y="570" fill="#7e8793" font-family="SF Mono, monospace" font-size="14">01 / 24</text>
+</svg>
