@@ -44,8 +44,12 @@ jobs:
                   out.write(base64.b64decode(raw, validate=False))
           PY
 
+          # The reconstructed byte stream is gzip-compressed; decompress it to
+          # recover the actual ZIP source archive.
+          gzip -dc "$tmp/source.zip" > "$tmp/source-unpacked.zip"
+
           mkdir "$tmp/unpacked"
-          unzip -q "$tmp/source.zip" -d "$tmp/unpacked"
+          unzip -q "$tmp/source-unpacked.zip" -d "$tmp/unpacked"
           package="$(find "$tmp/unpacked" -name Package.swift -print -quit)"
           test -n "$package"
           srcroot="$(dirname "$package")"
