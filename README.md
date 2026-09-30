@@ -68,9 +68,9 @@ Show file names, numbers or hide them completely.
 - Ultra-smooth navigation (trackpad, mouse, arrow keys)
 - Stunning 3D carousel interface
 - Choose between file names, numbered labels or no labels
-- Optimised for Apple Silicon (M1/M2/M3/M4)
-- Low memory usage (capped thumbnail cache)
-- No background battery drain
+- Optimised for Apple Silicon
+- Low memory usage with a bounded decoded-image cache
+- No background polling while the picker is closed
 - Fast, lightweight and designed for macOS
 
 </td>
@@ -95,6 +95,7 @@ The picker is designed around:
 - Bounded thumbnail memory
 - On-demand image work
 - Cancellation of unnecessary thumbnail work
+- Late decode results invalidated when the picker closes
 - Sleeping animation when the picker is settled
 - Memory cleanup when the picker closes
 
@@ -111,7 +112,7 @@ Choose:
 
 - macOS 14+
 - Apple Silicon
-- Release: **v1.1.0**
+- Release: **v1.1.1**
 
 ### Download
 
