@@ -1,28 +1,20 @@
 <div align="center">
 
-<table>
-<tr>
-<td width="150" valign="middle">
-<img src="docs/icon.png" width="128" alt="Reel icon">
-</td>
-<td align="left" valign="middle">
+<img src="docs/icon.png" width="132" alt="Reel icon">
 
-# <samp>Reel</samp>
+# <samp>R E E L</samp>
 
-<samp>The fastest, smoothest and most beautiful way to<br>
-browse and set your wallpapers on macOS.</samp>
+<samp>YOUR WALLPAPERS. IN MOTION.</samp>
+
+<br>
 
 <img src="https://img.shields.io/badge/macOS-0b1220?style=flat&labelColor=111827" alt="macOS">
 <img src="https://img.shields.io/badge/Apple%20Silicon-0b1220?style=flat&labelColor=111827" alt="Apple Silicon">
 <img src="https://img.shields.io/badge/Private-0b1220?style=flat&labelColor=111827" alt="Private">
 
-</td>
-</tr>
-</table>
-
 </div>
 
-<br>
+<br><br>
 
 <p align="center">
   <img src="docs/hero.webp" alt="Reel — your wallpapers in motion" width="100%">
@@ -67,7 +59,7 @@ or hide them completely.</samp>
 </tr>
 </table>
 
-<br>
+<br><br>
 
 <table>
 <tr>
@@ -104,13 +96,13 @@ or hide them completely.</samp>
 </td>
 <td width="52%" valign="top">
 
-<img src="docs/second.jpg" alt="Reel carousel detail" width="100%">
+<img src="docs/detail.svg" alt="Reel carousel detail" width="100%">
 
 </td>
 </tr>
 </table>
 
-<br>
+<br><br>
 
 ## <samp>ABOUT</samp>
 
