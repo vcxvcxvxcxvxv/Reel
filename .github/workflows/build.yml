@@ -31,14 +31,18 @@ jobs:
           git show df57b44fe525571a65584e15269b681a296c72f5:dist/source.part.01.b64 > "$tmp/part01"
           git show 4d57b32fdcb52d0784513fe4b8f21277b3bbbef6:dist/source.part.02.b64 > "$tmp/part02"
           git show a68b36c7e3944bd97ba9e5ffd29831e15e66624d:dist/source.part.03.b64 > "$tmp/part03"
-          # Each historical .b64 file is a complete gzip member containing a binary
-          # chunk of the source archive. Decode and decompress each member separately,
-          # then concatenate the binary chunks in their original order.
-          : > "$tmp/source.zip"
-          for part in 01 02 03; do
-              base64 -D < "$tmp/part$part" > "$tmp/part$part.gz"
-              gzip -dc "$tmp/part$part.gz" >> "$tmp/source.zip"
-          done
+          # Each historical .b64 file is base64 for one binary chunk of the same
+          # compressed source archive. Decode each chunk independently, then join
+          # the decoded bytes; the chunks are not independently decompressible.
+          python3 - "$tmp" <<'PY'
+          import base64, pathlib, sys
+          root = pathlib.Path(sys.argv[1])
+          with (root / "source.zip").open("wb") as out:
+              for name in ("part01", "part02", "part03"):
+                  raw = (root / name).read_bytes()
+                  raw += b"=" * ((4 - len(raw) % 4) % 4)
+                  out.write(base64.b64decode(raw, validate=False))
+          PY
 
           mkdir "$tmp/unpacked"
           unzip -q "$tmp/source.zip" -d "$tmp/unpacked"
