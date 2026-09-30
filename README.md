@@ -17,7 +17,7 @@
 <br><br>
 
 <p align="center">
-  <img src="docs/hero.webp" alt="Reel — your wallpapers in motion" width="100%">
+  <img src="docs/hero.png" alt="Reel — your wallpapers in motion" width="100%">
 </p>
 
 <br>
