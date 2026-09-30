@@ -69,11 +69,11 @@ or hide them completely.</samp>
 
 <samp>→ Ultra-smooth navigation — trackpad, mouse and arrow keys</samp>
 
-<br><br>
+<br>
 
 <samp>→ Stunning 3D carousel interface</samp>
 
-<br><br>
+<br>
 
 <samp>→ File names, numbered labels or no labels</samp>
 
