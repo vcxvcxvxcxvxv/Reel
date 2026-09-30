@@ -24,42 +24,28 @@
 
 <table>
 <tr>
-<td width="25%" valign="top">
-
+<td width="25%" valign="top" align="left">
 ### <samp>⚡ BLAZING FAST</samp>
-
-<samp>Fluid, seamless navigation<br>
-with zero lag.</samp>
-
+<br>
+<samp>Fluid, seamless<br>navigation with<br>zero lag.</samp>
 </td>
-<td width="25%" valign="top">
-
+<td width="25%" valign="top" align="left">
 ### <samp>▧ BEAUTIFUL UI</samp>
-
-<samp>Clean, minimal and<br>
-built for macOS.</samp>
-
+<br>
+<samp>Clean, minimal and<br>built for macOS.</samp>
 </td>
-<td width="25%" valign="top">
-
+<td width="25%" valign="top" align="left">
 ### <samp>⚙ SMART &amp; EFFICIENT</samp>
-
-<samp>Optimised for performance<br>
-and low memory usage.</samp>
-
+<br>
+<samp>Optimised for<br>performance and<br>low memory usage.</samp>
 </td>
-<td width="25%" valign="top">
-
+<td width="25%" valign="top" align="left">
 ### <samp>▣ YOUR WAY</samp>
-
-<samp>Show file names, numbers<br>
-or hide them completely.</samp>
-
+<br>
+<samp>Show file names,<br>numbers or hide<br>them completely.</samp>
 </td>
 </tr>
 </table>
-
-<br><br>
 
 <table>
 <tr>
