@@ -69,27 +69,15 @@ or hide them completely.</samp>
 
 <samp>→ Ultra-smooth navigation — trackpad, mouse and arrow keys</samp>
 
-<br>
-
 <samp>→ Stunning 3D carousel interface</samp>
-
-<br>
 
 <samp>→ File names, numbered labels or no labels</samp>
 
-<br><br>
-
-<samp>→ Optimised for Apple Silicon (M1 / M2 / M3 / M4)</samp>
-
-<br><br>
+<samp>→ Optimised for Apple Silicon (M1 / M2 / M3 / M4 / M5)</samp>
 
 <samp>→ Bounded thumbnail cache for predictable memory use</samp>
 
-<br><br>
-
 <samp>→ No background polling while the picker is closed</samp>
-
-<br><br>
 
 <samp>→ Fast, lightweight and designed for macOS</samp>
 
@@ -102,35 +90,23 @@ or hide them completely.</samp>
 </tr>
 </table>
 
-<br><br>
-
 ## <samp>ABOUT</samp>
 
 <samp>Reel is built to make wallpaper browsing feel immediate: swipe, scroll or press an arrow key and the carousel stays fluid while background work stays low.</samp>
-
-<br><br>
 
 ### <samp>PERFORMANCE</samp>
 
 <samp>Continuous input is handled frame-by-frame. Thumbnail work is bounded and cancellable, and late decode results are ignored after the picker closes.</samp>
 
-<br><br>
-
 ### <samp>LABELS</samp>
 
 <samp>Labels are display-only. They never rename the actual files in Finder.</samp>
 
-<br>
-
 <samp>01 / 02 / 03... &nbsp;&nbsp;•&nbsp;&nbsp; Original filename &nbsp;&nbsp;•&nbsp;&nbsp; Hidden</samp>
-
-<br><br>
 
 ### <samp>REQUIREMENTS</samp>
 
 <samp>macOS 14+ &nbsp;&nbsp;•&nbsp;&nbsp; Apple Silicon &nbsp;&nbsp;•&nbsp;&nbsp; Reel 1.1.1</samp>
-
-<br><br>
 
 ### <samp>DOWNLOAD</samp>
 
